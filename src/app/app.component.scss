@@ -1,0 +1,15 @@
+.main_wrapper{
+    background-color: var(--color-bg);
+    display: flex;
+    height: 100vh;
+    position: relative;
+
+    &_sidebar{
+        flex: 1;
+    }
+    &_contents{
+        border-top-left-radius: var(--border-radius-xl);
+        flex: 5;
+        background-color: var(--color-white);
+    }
+}

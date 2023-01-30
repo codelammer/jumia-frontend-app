@@ -1,1 +1,98 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --color-accent: #11d51f;
+    --color-accent-dark: #0faf1a;
+    --color-secondary: #dfffe0;
+    --color-bg: #f8f6f5;
+    --color-light-bg: #f9f9f9;
+    --color-dark-bg: #ebebeb;
+    --color-white: #fdfdfd;
+    --color-text: #010101;
+    --color-light-text: #7c7c7c;
+    --splash-box-shadow: 0px 0px 20px 5px rgb(223, 223, 223);
+    --size-avatar: 4rem;
+    --border-radius-xs: 8px;
+    --border-radius-xl: 1rem;
+    font-size: 16px;
+}
+
+//reset styles
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-size: 1rem;
+    // border: 1px solid red;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,span,table,td,th,tr,button {
+    font-family: "Jost", "sans-serif";
+    color: var(--color-text);
+}
+
+.avatar{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;                
+    object-fit: cover;
+}
+
+.medium-font{
+    font-size: 1.5rem;
+}
+
+.large-font{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.accent-color{
+    color: var(--color-accent);
+}
+
+button{
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+    border-radius: var(--border-radius-xs);
+
+    &.btn{
+
+        &:hover{
+            background-color: var(--color-secondary);
+        }
+
+        &-accent{        
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            box-shadow: var(--splash-box-shadow);
+        
+            &:hover{
+                background-color: var(--color-accent-dark);
+            }
+        }
+
+
+    }
+
+
+
+    i{
+        margin-left: 1rem;
+        font-size: 1rem !important;
+    }    
+}
+.cursor-pointer{
+    cursor: pointer;
+}
