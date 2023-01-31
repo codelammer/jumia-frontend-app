@@ -8,10 +8,20 @@
     &_sidebar{
         flex: 1;
     }
-    &_contents{
+    &_contents{        
+        background-color: var(--color-light-bg);
         overflow: auto;
         border-top-left-radius: var(--border-radius-xl);
         flex: 5;
-        background-color: var(--color-white);
+    }
+}
+
+
+@media (max-width: 992px){
+    .main_wrapper{
+        flex-direction: column;
+        overflow-y: auto;
+        height: unset;
+        min-height: 100vh;
     }
 }

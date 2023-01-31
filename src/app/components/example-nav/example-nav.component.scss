@@ -1,0 +1,36 @@
+:host{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+*{
+    color: var(--color-accent-dark);
+}
+
+.example_nav_wrapper{
+    background-color: var(--color-secondary);
+    display: flex;
+    border-radius: var(--border-radius-xl);
+    padding: 2rem;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    & > i{
+        font-size: 6rem;
+    }
+
+    span{
+        display: flex;
+        align-items: center;
+        padding-top: 1rem;
+        margin-top: 1rem;
+        border-top: 1px solid var(--color-accent);
+
+        i{             
+            margin-left: 0.5rem;
+        }
+    }
+}

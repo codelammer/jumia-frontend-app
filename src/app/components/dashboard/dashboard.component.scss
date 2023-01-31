@@ -1,9 +1,9 @@
 .dashboard_wrapper{
-    background-color: var(--color-light-bg);
     height: 100%;
     &_contents{
         padding: 1rem var(--padding-spacer-universal);
-    
+        overflow: auto;
+
         table{
             margin-top: 2rem;
             width: 100%;
