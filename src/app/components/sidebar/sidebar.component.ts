@@ -1,5 +1,7 @@
 import { trigger, transition, animate, style } from '@angular/animations';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { User } from 'src/app/interfaces/user';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,13 +19,18 @@ import { Component, HostListener, OnInit } from '@angular/core';
     ])
   ]
 })
+
 export class SidebarComponent implements OnInit {
   menu: boolean = false;
+  dummyLoggedInUser: User = {} as User;
 
-  ngOnInit(){
+  constructor(private usersService: UsersService){}
+
+  ngOnInit(): void{
       if (window.innerWidth > 992) {
         this.menu = true;
       }
+      this.fetchDummyLoggedInUser();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -34,4 +41,20 @@ export class SidebarComponent implements OnInit {
       this.menu = false;
     }
   }
+
+  fetchDummyLoggedInUser(): void{
+    this.usersService.dummyLoggedInUser()
+    .subscribe({
+        next: (res: any )=> {
+          this.dummyLoggedInUser = res.results[0];
+          console.log(res);
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
+  } 
+
+
+
 }

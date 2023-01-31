@@ -7,18 +7,17 @@
         </div>
     </div>
     <nav *ngIf="menu" [@slideInOut]>
-        <div class="sidebar_wrapper_user">
-        
+        <div class="sidebar_wrapper_user" *ngIf="dummyLoggedInUser">        
             <div class="sidebar_wrapper_user_image">
-                <img class="avatar" src="/assets/images/portrait.jpg" alt="">
+                <img class="avatar" [src]="dummyLoggedInUser.picture?.medium" alt="">
             </div>
             <p class="sidebar_wrapper_user_name medium-font">
-                Name Kali
+                {{dummyLoggedInUser.name.first}} {{dummyLoggedInUser.name.last}}
             </p>
-            <p class="accent-color">someone@someone.com</p>
+            <p class="accent-color">{{dummyLoggedInUser.email}}</p>
         </div>
         <div class="sidebar_wrapper_action">
-            <button class="btn-accent splash-box-shadow">Add a user <i class="material-icons">add</i></button>
+            <button class="btn-accent splash-box-shadow" title="Just to spice up the UI :-)">Add a user <i class="material-icons">add</i></button>
         </div>
         <ul class="sidebar_wrapper_nav">
             <li class="cursor-pointer" routerLink="/dashboard" [routerLinkActive]="'sidebar_wrapper_nav-active'"><i class="material-icons">dashboard</i> Dashboard</li>
