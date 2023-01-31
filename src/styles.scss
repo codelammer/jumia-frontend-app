@@ -6,6 +6,7 @@
     --color-bg: #f8f6f5;
     --color-light-bg: #f9f9f9;
     --color-dark-bg: #ebebeb;
+    --color-separator: var(--color-dark-bg);
     --color-white: #fdfdfd;
     --color-text: #010101;
     --color-light-text: #7c7c7c;
@@ -13,6 +14,7 @@
     --size-avatar: 4rem;
     --border-radius-xs: 8px;
     --border-radius-xl: 1rem;
+    --padding-spacer-universal: 2rem;
     font-size: 16px;
 }
 
@@ -49,7 +51,7 @@ div,span,table,td,th,tr,button {
 }
 
 .large-font{
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: 600;
 }
 
@@ -95,4 +97,13 @@ button{
 }
 .cursor-pointer{
     cursor: pointer;
+}
+
+.decoration-left{
+    background-color: var(--color-accent);
+    border-radius: 0 var(--border-radius-xl) var(--border-radius-xl) 0;
+}
+
+.splash-box-shadow{
+    box-shadow: var(--splash-box-shadow);
 }

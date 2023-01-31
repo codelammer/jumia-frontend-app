@@ -1,0 +1,97 @@
+.dashboard_wrapper{
+    background-color: var(--color-light-bg);
+    height: 100%;
+    &_contents{
+        padding: 1rem var(--padding-spacer-universal);
+    
+        table{
+            margin-top: 2rem;
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--color-white);
+            border-radius: var(--border-radius-xl);
+            thead{
+                th{
+                    // display: inline-fle
+                    border-bottom: 1px solid var(--color-separator);
+                    padding: 1rem var(--padding-spacer-universal);
+                }
+            }
+    
+            tr{
+                transition: background-color 0.4s ease;
+                &:hover{
+                    background-color: var(--color-secondary);
+                }    
+                td{
+                    &:not(:last-child){
+                        .table-td{
+                            position: relative;
+                            &::after{
+                                content: "";
+                                position: absolute;
+                                right: 0;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                height: 2rem;
+                                background-color: var(--color-separator);
+                                width: 1px;
+                            }
+                        }
+                    }
+
+                    .table-td{
+                        padding: 0 2rem;
+                        height: 100%;
+                        &_gender{
+                            padding: 0.5rem 1rem;
+                            font-size: 0.8rem;
+                            color: var(--color-accent-dark);
+                            background-color: var(--color-secondary);
+                            border-radius: 10rem;
+                        }
+                    }
+
+                    .table_td_user{
+                        // border-right: 1px solid var(--color-separator);
+                        display: flex;
+                        align-items: center;
+                        margin: 0.5rem 0;                        
+                        &_avatar{
+                            margin-right: 2rem;
+                            img{
+                                // width: 3rem;
+                                // height: 3rem;
+                            }
+                            
+                        }
+                        &_info{
+                            display: flex;
+                            align-items: start;
+                            flex-direction: column;
+                            &_name{
+                                font-size: 1.2rem;
+                            }
+                            &_email{
+                                font-size: 0.8rem;
+                                color: var(--color-light-text);
+                            }
+                            &_location{
+                                font-size: 0.8rem;
+                                margin-top: 0.5rem;
+                                display: flex;
+                                align-items: center;
+                                color: var(--color-light-text);
+                                i{
+                                    font-size: 0.8rem;
+                                    margin-right: 0.2rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }        
+    }
+}
