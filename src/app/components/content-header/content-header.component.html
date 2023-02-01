@@ -4,4 +4,14 @@
         <h1 class="large-font">{{title}}</h1>
     </div>
     <p>{{description}}</p>
+    <div class="content_header_wrapper-export">
+        <mat-form-field appearance="outline" >
+            <mat-label>Export users</mat-label>
+            <mat-select (selectionChange)="selectionChanged($event)">
+              <mat-option *ngFor="let format of formats" [value]="format">
+                {{format}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
 </div>

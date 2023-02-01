@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,8 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
 
-  apiUrl: string = "https://randomuser.me/api/";
-  seed: string = "abc";
+  private apiUrl: string = "https://randomuser.me/api/";
+  private seed: string = "abc";
+  private httpOptions: any = {
+    headers: new HttpHeaders({}),
+    responseType: 'text'
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -18,5 +22,9 @@ export class UsersService {
 
   dummyLoggedInUser(): Observable<any>{
     return this.http.get(this.apiUrl);
+  }
+
+  exportUsers(format: string, page: number, results: number){
+    return this.http.get(`${this.apiUrl}?page=${page}&results=${results}&seed=${this.seed}&format=${format}`, this.httpOptions);
   }
 }

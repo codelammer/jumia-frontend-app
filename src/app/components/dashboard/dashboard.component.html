@@ -1,5 +1,5 @@
 <div class="dashboard_wrapper">
-    <app-content-header [title]="'Home'" [description]="'An angular test project :-)'"></app-content-header>
+    <app-content-header [title]="'Home'" [description]="'An angular test project :-)'" (exportFormat)="onExportFormat($event)"></app-content-header>
 
     <div class="dashboard_wrapper_contents">
         <!-- make sure UI is populated before loading table UI -->

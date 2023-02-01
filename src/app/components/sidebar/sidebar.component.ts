@@ -35,6 +35,7 @@ export class SidebarComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(){
+    //always show nav on screens greater than 992px
     if (window.innerWidth > 992) {
       this.menu = true;
     }else{

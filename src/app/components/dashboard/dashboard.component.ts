@@ -31,5 +31,33 @@ export class DashboardComponent implements OnInit{
         }
       });
   }
+
+  onExportFormat(e: string): void{
+    console.log(e);
+    //add 1 to page before multiply due to the api starting from page 0
+    let totalUsers: number = ((this.page + 1) * this.results);
+    this.usersService.exportUsers(e, 0, totalUsers).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.downloadButtonPush(res, e);
+      }, 
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+
+  
+  downloadButtonPush(data: any, format: string): void{
+    const a = document.createElement('a');
+    const blob = new Blob([data], { type: `text/${format}` });
+    const url = window.URL.createObjectURL(blob);
+    const date = new Date();
+    a.href = url;
+    a.download = `myFile-${date.toString()}.${format}`;
+    a.click();
+    window.URL.revokeObjectURL(url);
+    a.remove();
+  }
  
 }

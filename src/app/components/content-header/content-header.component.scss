@@ -11,4 +11,15 @@
             margin-right: 1rem;
         }
     }
+    &-export{
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        span{
+            margin: 0 2rem;
+        }
+        button{
+            padding: 1rem 2rem;
+        }
+    }
 }
