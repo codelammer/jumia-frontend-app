@@ -23,6 +23,7 @@ After pull run
 #### Bonus topics
 * I was able to implement infinite virtual scrolling 
 * I would also implement the `Only request the fields that really need (based on the columns selected)` if I had more time
+* Feel free to go through my commits history on this project github
 
 
 ## Alternative Installation
