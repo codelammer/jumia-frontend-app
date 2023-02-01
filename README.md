@@ -4,7 +4,7 @@
 Run `docker pull codelammer/jumia-docker:first_image_push_test` to pull the image from docker hub
 
 After pull run 
-`docker run -p 8080:8080 docker pull codelammer/jumia-docker:first_image_push_test`
+`docker run -p 8080:8080 codelammer/jumia-docker:first_image_push_test`
 
 # About the project
 
