@@ -12,7 +12,7 @@
                 <img class="avatar" [src]="dummyLoggedInUser.picture?.medium" alt="">
             </div>
             <p class="sidebar_wrapper_user_name medium-font">
-                {{dummyLoggedInUser.name.first}} {{dummyLoggedInUser.name.last}}
+                {{dummyLoggedInUser.name?.first}} {{dummyLoggedInUser.name?.last}}
             </p>
             <p class="accent-color">{{dummyLoggedInUser.email}}</p>
         </div>

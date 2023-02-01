@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -11,6 +11,7 @@ export class DashboardComponent implements OnInit{
   page: number = 0;
   results: number = 10;
   users: User[] = [];
+  spinner: boolean = false;
   
   constructor (private usersService: UsersService) {}
 
@@ -19,14 +20,17 @@ export class DashboardComponent implements OnInit{
   }
 
   fetchUsers(): void{
+    this.spinner = true;
     this.usersService.fetchUsers(this.page, this.results)
     .subscribe({
         next: (res: any )=> {
           console.log(res);
-          this.users = res.results;
+          this.users = [...this.users, ...res.results];
+          this.spinner = false;
           console.log(this.users);
         },
         error: (err) => {
+          this.spinner = false;
           console.error(err);
         }
       });
@@ -58,6 +62,16 @@ export class DashboardComponent implements OnInit{
     a.click();
     window.URL.revokeObjectURL(url);
     a.remove();
+  }
+
+  @HostListener("window:scroll", ['$event'])
+  onScroll(e: any): void {
+
+    if((window.innerHeight + window.scrollY) >= document.body.scrollHeight){
+      console.log("reached the bottom");
+      this.page ++;
+      this.fetchUsers();
+    }
   }
  
 }

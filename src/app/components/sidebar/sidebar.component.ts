@@ -22,6 +22,7 @@ import { UsersService } from 'src/app/services/users.service';
 
 export class SidebarComponent implements OnInit {
   menu: boolean = false;
+  spinner: boolean = false;
   dummyLoggedInUser: User = {} as User;
 
   constructor(private usersService: UsersService){}
@@ -44,13 +45,16 @@ export class SidebarComponent implements OnInit {
   }
 
   fetchDummyLoggedInUser(): void{
+    this.spinner = true;
     this.usersService.dummyLoggedInUser()
     .subscribe({
         next: (res: any )=> {
           this.dummyLoggedInUser = res.results[0];
+          this.spinner = false;
           console.log(res);
         },
         error: (err) => {
+          this.spinner = false;
           console.error(err);
         }
       });

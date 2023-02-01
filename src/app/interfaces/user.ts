@@ -1,6 +1,6 @@
 export interface User {
     gender: string;
-    name: {
+    name?: {
         title?: string;
         first?: string;
         last?: string;
