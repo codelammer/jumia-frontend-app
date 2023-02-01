@@ -1,6 +1,7 @@
 .dashboard_wrapper{
     height: 100%;
     overflow-y: auto;
+    padding-bottom: 2rem;
     &_contents{
         padding: 1rem 0;
         
@@ -137,12 +138,29 @@
 }
 
 
-@media (max-width: 992px){
+@media (max-width: 992px){    
     .dashboard_wrapper{
         &_contents{
             &_table{
                 padding: 0 1rem;
-            }
+            }         
+        }
+    }
+
+}
+
+@media (max-width: 576px){    
+    .dashboard_wrapper{
+        &_contents{
+            &_filters{
+                flex-direction: column;
+                &_input{
+                    flex-flow: column nowrap;
+                    mat-form-field{
+                        margin: 0.2rem 0;
+                    }
+                }
+            }            
         }
     }
 
