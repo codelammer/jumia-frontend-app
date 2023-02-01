@@ -7,6 +7,7 @@ export interface User {
     };
     location?: {
         city: string;
+        country: string;
     };
     email: string;
     dob: {

@@ -1,11 +1,12 @@
 .dashboard_wrapper{
     height: 100%;
+    overflow-y: auto;
     &_contents{
-        padding: 1rem var(--padding-spacer-universal);
-        overflow: auto;
-
+        padding: 1rem 0;
+        
         table{
             margin-top: 2rem;
+            padding: 0 2rem;
             width: 100%;
             border-collapse: collapse;
             background-color: var(--color-white);
@@ -82,7 +83,7 @@
                                 display: flex;
                                 align-items: center;
                                 color: var(--color-light-text);
-                                i{
+                                i, span{
                                     font-size: 0.8rem;
                                     margin-right: 0.2rem;
                                 }
@@ -92,6 +93,57 @@
                 }
             }
             
-        }        
+        }  
+
+        &_table{
+            overflow-x: auto;     
+            padding: 0 2rem;       
+        }
+        
+        &_filters{
+            h2{
+                display: flex;            
+                align-items: center;
+                color: var(--color-light-text);
+                margin-right: 2rem;
+                i{
+                    margin-left: 0.5rem;
+                    font-size: 0.8rem !important;
+                } 
+            }
+            display: flex;            
+            align-items: center;
+            justify-content: center;
+            flex-flow: row wrap;
+
+            &_input{                           
+                display: flex;
+                padding: 1rem 0;
+                flex-flow: row wrap;
+                align-items: center;
+                justify-content: center;
+            }
+            mat-form-field{
+                margin-bottom: -1rem;
+                margin-right: 1rem;
+            }
+
+            button{
+                margin: 1rem 0;
+                padding: 1rem 2rem;
+            }
+        }
     }
+}
+
+
+@media (max-width: 992px){
+    .dashboard_wrapper{
+        &_contents{
+            &_table{
+                padding: 0 1rem;
+            }
+        }
+    }
+
 }

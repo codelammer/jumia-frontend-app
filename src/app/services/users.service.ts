@@ -16,7 +16,17 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  fetchUsers(page: number, results: number): Observable<any>{
+  fetchUsers(page: number, results: number, filter?: any, ): Observable<any>{
+    if (filter) {
+      console.log(Object.entries(filter));
+
+      //somehow this API doesn't seem to work with seed when filtering with gender therefore have to remove seed
+      //seed is useful in pulling the same set of results - without it the results are random after every pull
+      if (Object.entries(filter)[0][0]=="gender") {
+        return this.http.get(`${this.apiUrl}?page=${page}&results=${results}&${Object.entries(filter)[0][0]}=${Object.entries(filter)[0][1]}`);
+      }
+      return this.http.get(`${this.apiUrl}?page=${page}&results=${results}&${Object.entries(filter)[0][0]}=${Object.entries(filter)[0][1]}&seed=${this.seed}`);
+    }
     return this.http.get(`${this.apiUrl}?page=${page}&results=${results}&seed=${this.seed}`);
   }  
 

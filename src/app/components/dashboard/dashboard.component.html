@@ -1,43 +1,67 @@
-<div class="dashboard_wrapper">
+<div class="dashboard_wrapper" (scroll)="onScrollWrapper($event)">
     <app-content-header [title]="'Home'" [description]="'An angular test project :-)'" (exportFormat)="onExportFormat($event)"></app-content-header>
 
     <div class="dashboard_wrapper_contents">
         <!-- make sure UI is populated before loading table UI -->
         <ng-container *ngIf="users.length">
-            <table class="splash-box-shadow">
-                <thead>
-                    <th align="center">User</th>
-                    <th align="center">Tel no</th>
-                    <th align="center">Age</th>
-                    <th align="center">Registered</th>
-                    <th align="center">Gender</th>
-                </thead>
-                <ng-container *ngFor="let user of users">
-                    <tr>
-                        <td align="center">
-                            <div class="table_td_user table-td">
-                                <div class="table_td_user_avatar">
-                                    <img class="avatar" [src]="user?.picture?.medium" alt="">
+            <div class="dashboard_wrapper_contents_filters">
+                <h2>Filters <i class="material-icons">tune</i></h2>
+                <div class="dashboard_wrapper_contents_filters_input">
+                    <mat-form-field appearance="fill">
+                        <mat-label>gender</mat-label>
+                        <mat-select (selectionChange)="changeGender()" [(value)]="selectedGender">
+                          <mat-option *ngFor="let gender of genders" [value]="gender">
+                            {{gender}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Nationality</mat-label>
+                        <mat-select (selectionChange)="changeNationality()" [(value)]="selectedNationality">
+                          <mat-option *ngFor="let nationality of nationalities" [value]="nationality.cca2">
+                            {{nationality.name.common}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <button class="btn-accent splash-box-shadow" title="Just to spice up the UI :-)" (click)="resetFields()">Reset <i class="material-icons">refresh</i></button>
+                </div>                 
+            </div>
+            <div class="dashboard_wrapper_contents_table">
+                <table class="splash-box-shadow">
+                    <thead>
+                        <th align="center">User</th>
+                        <th align="center">Tel no</th>
+                        <th align="center">Age</th>
+                        <th align="center">Registered</th>
+                        <th align="center">Gender</th>
+                    </thead>
+                    <ng-container *ngFor="let user of users">
+                        <tr>
+                            <td align="center">
+                                <div class="table_td_user table-td">
+                                    <div class="table_td_user_avatar">
+                                        <img class="avatar" [src]="user?.picture?.medium" alt="">
+                                    </div>
+                                    <div class="table_td_user_info">
+                                        <p class="table_td_user_info_name">{{user?.name?.first}} {{user?.name?.last}}</p>
+                                        <p class="table_td_user_info_email">{{user?.email}}</p>
+                                        <p class="table_td_user_info_location">
+                                            <i class="material-icons">location_on</i>
+                                            {{user?.location?.city}}, <span class="accent-color"> {{user?.location?.country}}</span>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="table_td_user_info">
-                                    <p class="table_td_user_info_name">{{user?.name?.first}} {{user?.name?.last}}</p>
-                                    <p class="table_td_user_info_email">{{user?.email}}</p>
-                                    <p class="table_td_user_info_location">
-                                        <i class="material-icons">location_on</i>
-                                        {{user?.location?.city}}
-                                    </p>
-                                </div>
-                            </div>
-                        </td>
-                        <td align="center"><span class="table-td">{{user?.phone}}</span></td>
-                        <td align="center"><span class="table-td">{{user?.dob?.age}}</span></td>
-                        <td align="center"><span class="table-td">{{user?.registered?.age}}</span></td>
-                        <td align="center">
-                            <span class="table-td_gender">{{user?.gender}}</span>
-                        </td>
-                    </tr>
-                </ng-container>
-            </table>
+                            </td>
+                            <td align="center"><span class="table-td">{{user?.phone}}</span></td>
+                            <td align="center"><span class="table-td">{{user?.dob?.age}}</span></td>
+                            <td align="center"><span class="table-td">{{user?.registered?.age}}</span></td>
+                            <td align="center">
+                                <span class="table-td_gender">{{user?.gender}}</span>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </table>
+            </div>
         </ng-container>
 
         <ng-container *ngIf="spinner">
