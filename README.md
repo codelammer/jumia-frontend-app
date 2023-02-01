@@ -10,7 +10,7 @@ After pull run
 
 #### UI
 * My first approach was to design the user interface using Adobe XD (I personally prefer Adobe XD to figma although I still know how to use most of the design softwares like Illustrator, figma etc)
-* I decided to use the table approach(list of users in a table) as it is more challenging to style responsively and I was up for the task. I used *David Rizo*'s approach on 'scrollable responsive tables as illustrated in his article `https://css-tricks.com/accessible-simple-responsive-tables/`.
+* I decided to use the table approach(list of users in a table) as it is more challenging to style responsively and I was up for the task. I used *David Rizo*'s approach on 'scrollable responsive tables as illustrated in his article https://css-tricks.com/accessible-simple-responsive-tables/.
 * I highly advise to test this UI in a real mobile device and tablet 
 * I only used angular material for the input fields but decided to be original in styling other elements
 * The `add a user button` and `example nav` are just dummy elements to add aesthetics to the look and feel of the SPA.
@@ -27,11 +27,11 @@ After pull run
 
 
 ## Alternative Installation
-Alternative, you can run this application locally by following the steps below after pull github repository
+Alternatively, you can run this application locally by following the steps below after pull github repository
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
 
 ## Development server
 Run `npm install` to install dependancies locally
 
-Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically open a tab on your default browser with the application in it.
+Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`. The CLI will automatically open a tab on your default browser with the application in it.
